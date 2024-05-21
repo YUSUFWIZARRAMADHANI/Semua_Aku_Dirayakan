@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For you.. So Beatifull</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1 id="usernameDisplay"></h1>
+        <img src="danbo4.jpg" alt="Animated Sticker" class="sticker">
+        <p id="usernameDisplay">Mulai dari mana yah enak nya.., Lngsung aja deh.. :) </p>
+        <form id="commentForm" onsubmit="handleComment(event)">
+            <div class="input-group">
+                <textarea id="comment" name="comment" rows="4" placeholder="Write your comment here..." required></textarea>
+            </div>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+
+    <script>
+        function handleComment(event) {
+            event.preventDefault(); // Mencegah form submit default
+
+            const comment = document.getElementById('comment').value;
+            alert(`Your comment has been sent: ${comment}`);
+            window.location.href = 'second.html';
+        }
+
+        // Fungsi untuk menampilkan username
+        function displayUsername() {
+            const username = localStorage.getItem('username');
+            if (username) {
+                document.getElementById('usernameDisplay').textContent = `Welcome, ${username}`;
+            }
+        }
+
+        // Panggil fungsi displayUsername saat halaman dimuat
+        window.onload = displayUsername;
+    </script>
+</body>
+</html>

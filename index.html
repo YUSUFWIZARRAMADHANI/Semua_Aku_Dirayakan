@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Login</h1>
+        <form action="next.html">
+            <form id="loginForm" /!onsubmit="handleLogin(event)">
+            <div class="input-group">
+                <label for="username">Tulis Nama Kamu Ya..</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="input-group">
+                <label for="dob">Tanggal Kita Dirayakan</label>
+                <input type="date" id="dob" name="dob" required>
+            </div>
+            <button type="submit">Lanjut..</button>
+        </form>
+    </form>
+    </div>
+
+    <script>
+        function handleLogin(event) {
+            event.preventDefault(); // Mencegah form submit default
+
+            const username = document.getElementById('username').value;
+            const dob = document.getElementById('dob').value;
+
+            // Simpan username di localStorage
+            localStorage.setItem('username', username);
+
+            // Arahkan ke halaman berikutnya
+            window.location.href = 'next.html';
+        }
+    </script>
+</body>
+</html>
